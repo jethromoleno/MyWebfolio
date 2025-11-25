@@ -533,6 +533,11 @@ const Services = () => {
       icon: <Globe size={32} className="text-blue-500" />
     },
     {
+      title: "Application Development",
+      desc: "Building robust and scalable applications for desktop and web platforms, focusing on performance and user experience.",
+      icon: <Code size={32} className="text-orange-500" />
+    },
+    {
       title: "UI/UX Design",
       desc: "Creating beautiful, intuitive interfaces that drive user engagement and accessibility.",
       icon: <Palette size={32} className="text-purple-500" />
@@ -542,11 +547,6 @@ const Services = () => {
       desc: "Advising on tech stack choices, code architecture, and optimization strategies.",
       icon: <Monitor size={32} className="text-emerald-500" />
     },
-    {
-      title: "CMS Integration",
-      desc: "Customizing Headless CMS solutions for easy content management.",
-      icon: <Layout size={32} className="text-orange-500" />
-    }
   ];
 
   return (
