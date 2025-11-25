@@ -164,6 +164,9 @@ const Navigation = ({ activeSection }) => {
 // All Section Components (Hero, VideoCV, Skills, Services, Projects, Resume) now have min-h-screen added
 
 const Hero = () => {
+
+  const profileImageUrl = "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/profile-assets/my-profile.JPG";
+
   return (
     <section id="home" className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
       <div className="flex-1 space-y-6 text-center lg:text-left">
