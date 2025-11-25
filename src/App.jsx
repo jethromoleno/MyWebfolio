@@ -358,7 +358,7 @@ const VideoCV = () => {
         </div>
 
         {/* Resume/Contact Details Section (MOVED FROM Resume component) */}
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 mt-16">Contact Me & Resume</h2>
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8 mt-16">Resume</h2>
         <div className="bg-white dark:bg-slate-900 p-8 rounded-2xl max-w-4xl mx-auto shadow-2xl border border-slate-200 dark:border-slate-700 text-left">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-left space-y-4">
@@ -372,10 +372,10 @@ const VideoCV = () => {
               </div>
               <div className="flex flex-col gap-3 w-full md:w-auto">
                 <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                  <Download size={20} /> Download PDF
+                  <Download size={20} /> Download
                 </button>
                 <button className="flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                  <ExternalLink size={20} /> Preview in Browser
+                  <ExternalLink size={20} /> Preview
                 </button>
               </div>
             </div>
