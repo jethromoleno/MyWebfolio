@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import ProjectModal from './ProjectModal';
 import {
   Github,
+  Link,
   Linkedin,
   Mail,
+  Send,
   Download,
   ExternalLink,
   Code2,
@@ -33,7 +35,8 @@ import {
   Sparkles,
   Eye,
   Code,
-  CheckCircle
+  CheckCircle,
+  XCircle
 } from 'lucide-react';
 
 // --- Helper Hook for Intersection Observation ---
@@ -129,7 +132,7 @@ const Navigation = ({ activeSection }) => {
     { name: 'Services', href: '#services', icon: Briefcase },
     { name: 'Projects', href: '#projects', icon: Layers },
     // MODIFIED: Changed 'Resume' to 'Contact Me'
-    { name: 'Contact', href: '#resume', icon: FileText },
+    { name: 'Contact', href: '#contact', icon: FileText },
   ];
 
   const handleLinkClick = (e, href) => {
@@ -646,10 +649,10 @@ const projectsData = [
     title: "Car Parking System",
     description: "A digital logic project implemented using Verilog HDL, demonstrating the use of Finite State Machines (FSM), counters, and combinational/sequential logic to build an automated car parking gate control system.",
     techStack: ["Verilog", "FSM", "ModelSim"],
-    image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
+    image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CarParkingSystem.jpg",
     
     // MODAL FIELDS
-    imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
+    imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CarParkingSystem.jpg",
     summary: "This project simulates a smart parking system given a specific problem statement by our professor.",
     features: [
       "🚘 Car entry detection",
@@ -664,58 +667,6 @@ const projectsData = [
   },
   // Add more projects here following the same structure...
 ];
-
-const Resume = () => {
-  // Since you moved the content to VideoCV (#about), this section can hold a simple contact form or a link summary.
-  // For now, let's keep it simple to ensure the App doesn't crash.
-  return (
-    <section id="resume" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="w-full text-center">
-        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Contact Me & Download Resume</h2>
-        <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
-          The full Resume details and download link are available in the **About Me** section above.
-        </p>
-        
-        {/* Re-using the download/contact links */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="https://raw.githubusercontent.com/jethromoleno/MyWebfolio/main/profile-assets/Moleno_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-            className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-          >
-            <Download size={20} /> Download PDF
-          </a>
-          <a
-            href="mailto:jethromoleno@gmail.com"
-            className="flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-lg font-medium transition-colors"
-          >
-            <Mail size={20} /> Send Email
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Footer = () => {
-  return (
-    <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-center md:text-left">
-          <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
-          <p className="text-slate-500 text-sm">© 2025 Jethro P. Moleño. All rights reserved.</p>
-        </div>
-        <div className="flex gap-6">
-          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Github size={20} /></a>
-          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={20} /></a>
-          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={20} /></a>
-        </div>
-      </div>
-    </footer>
-  );
-};
 
 // --- PROJECTS COMPONENT (Updated with Pulse Effect) ---
 
@@ -801,6 +752,191 @@ export const Projects = () => {
     );
 };
 
+const Contacts = () => {
+    // 1. STATE MANAGEMENT
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+    // status can be 'idle', 'submitting', 'success', 'error'
+    const [status, setStatus] = useState('idle'); 
+    const [responseMessage, setResponseMessage] = useState('');
+    
+    // Google Apps Script URL
+    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycby1Mppp8U-rG9qnlq2onPlkA40xUvYcP1FTlmE5xfd-M8zYI_aSzZAw5uWtOfWI5oarPw/exec"; 
+    
+    // --- Handlers ---
+    
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); // <-- 🛑 PREVENTS PAGE REDIRECT
+
+        setStatus('submitting');
+        setResponseMessage('');
+
+        // Convert formData object to URLSearchParams for Google Apps Script
+        const params = new URLSearchParams(formData);
+
+        try {
+            const response = await fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                body: params,
+                mode: 'no-cors', // CRUCIAL for Google Apps Script to avoid CORS errors
+            });
+
+            // With 'no-cors', we can't read the server's response content, 
+            // so we assume success if the request completes without a network error.
+            if (response.ok || response.type === 'opaque') { 
+                setStatus('success');
+                setResponseMessage('🎉 Message sent successfully! I will be in touch soon.');
+                setFormData({ name: '', email: '', message: '' }); // Clear form fields
+            } else {
+                setStatus('error');
+                setResponseMessage('Submission failed. Please check your network.');
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setStatus('error');
+            setResponseMessage('An error occurred during submission. Please try again.');
+        }
+    };
+    
+    const isSubmitting = status === 'submitting';
+
+    return (
+        <section id="contact" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div className="w-full text-center max-w-2xl mx-auto">
+                
+                <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    <Mail size={36} className="inline-block mr-3 text-blue-600" />
+                    Contact
+                </h2>
+                
+                <p className="text-xl text-slate-600 dark:text-slate-400 mb-10">
+                    Have a project or opportunity? Send me a message, and I'll get back to you as soon as possible.
+                </p>
+
+                {/* --- 🔔 SUBMISSION STATUS POPUP (NEW) --- */}
+                {status !== 'idle' && status !== 'submitting' && (
+                    <div className={`p-4 mb-6 rounded-lg font-medium transition-opacity duration-300 shadow-lg
+                                      ${status === 'success' 
+                                          ? 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-white' 
+                                          : 'bg-red-100 text-red-700 dark:bg-red-800 dark:text-white'
+                                      }`}
+                    >
+                        <div className="flex items-center justify-center gap-3">
+                            {status === 'success' ? <CheckCircle size={24} /> : <XCircle size={24} />}
+                            <p className="text-left">{responseMessage}</p>
+                            <button 
+                                onClick={() => setStatus('idle')}
+                                className="ml-4 text-sm font-bold opacity-70 hover:opacity-100"
+                            >
+                                (Dismiss)
+                            </button>
+                        </div>
+                    </div>
+                )}
+                
+                {/* --- CONTACT FORM --- */}
+                <form
+                    onSubmit={handleSubmit} // 🛑 Using JavaScript handler instead of standard action
+                    className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-xl shadow-2xl space-y-6"
+                >
+                    {/* Name Input */}
+                    <div>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            required
+                            value={formData.name} // Controlled component
+                            onChange={handleChange}
+                            disabled={isSubmitting} // Disable while sending
+                            className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
+                                       focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white
+                                       bg-slate-50 dark:bg-slate-700 transition-colors disabled:opacity-50"
+                        />
+                    </div>
+
+                    {/* Email Input */}
+                    <div>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                            value={formData.email}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                            className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
+                                       focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white
+                                       bg-slate-50 dark:bg-slate-700 transition-colors disabled:opacity-50"
+                        />
+                    </div>
+
+                    {/* Message Textarea */}
+                    <div>
+                        <textarea
+                            name="message"
+                            rows="5"
+                            placeholder="Your Message"
+                            required
+                            value={formData.message}
+                            onChange={handleChange}
+                            disabled={isSubmitting}
+                            className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
+                                       focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white
+                                       bg-slate-50 dark:bg-slate-700 transition-colors resize-none disabled:opacity-50"
+                        ></textarea>
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white 
+                                   px-8 py-3 rounded-lg font-bold text-lg transition-colors shadow-md hover:shadow-lg disabled:bg-gray-400"
+                    >
+                        {isSubmitting ? (
+                            <>
+                                <span className="animate-spin h-5 w-5 border-t-2 border-white rounded-full"></span>
+                                Sending...
+                            </>
+                        ) : (
+                            <>
+                                <Send size={20} /> Send Message
+                            </>
+                        )}
+                    </button>
+                </form>            
+            </div>
+        </section>
+    );
+};
+
+const Footer = () => {
+  return (
+    <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="text-center md:text-left">
+          <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
+          <p className="text-slate-500 text-sm">© 2025 Jethro P. Moleño. All rights reserved.</p>
+        </div>
+        <div className="flex gap-6">
+          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Github size={20} /></a>
+          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={20} /></a>
+          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={20} /></a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+
 export default function App() {
   const sectionIds = ['home', 'about', 'skills', 'services', 'projects', 'resume'];
   const activeSection = useActiveSection(sectionIds);
@@ -832,7 +968,7 @@ export default function App() {
         <Skills />
         <Services />
         <Projects />
-        <Resume />
+        <Contacts />
       </main>
       <Footer />
 
