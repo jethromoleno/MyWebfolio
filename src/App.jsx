@@ -371,12 +371,23 @@ const VideoCV = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-3 w-full md:w-auto">
-                <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                <a 
+                  href="https://raw.githubusercontent.com/jethromoleno/MyWebfolio/main/profile-assets/Moleno_Resume.pdf" 
+                  target="_blank" // Opens the file in a new tab for download/view
+                  rel="noopener noreferrer"
+                  download // Suggests the browser download the file directly
+                  className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
                   <Download size={20} /> Download
-                </button>
-                <button className="flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                </a>
+                <a 
+                  href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/jethromoleno/MyWebfolio/main/profile-assets/Moleno_Resume.pdf&embedded=true" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
                   <ExternalLink size={20} /> Preview
-                </button>
+                </a>
               </div>
             </div>
         </div>
