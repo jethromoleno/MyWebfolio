@@ -138,7 +138,7 @@ const Navigation = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Portfolio.
+              myPortfolio.
             </span>
           </div>
           
@@ -217,7 +217,7 @@ const Hero = () => {
       <div className="flex-1 space-y-6 text-center lg:text-left">
         {/* 1. INCREASE FONT SIZE (text-sm -> text-lg) */}
         <h2 className="text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase text-lg">
-          Fresh Computer Engineering Graduate
+          Computer Engineering Graduate
         </h2>
         {/* UPDATED SLOGAN HERE */}
         <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -280,6 +280,28 @@ const Hero = () => {
           - Mobile (default): w-80 h-80 (was w-72 h-72)
           - Large Screens: lg:w-[28rem] lg:h-[28rem] (28rem = 448px, a substantial increase)
         */}
+        {/* --- 1. WHISPER SPEECH BUBBLE (MODIFIED) --- */}
+        <div 
+            // Positioned centered horizontally, and slightly above the circle's top edge
+            className="absolute top-0 left-1/2 -translate-x-1/2 z-30 
+                       // Styling (Increased Size)
+                       bg-white dark:bg-slate-700 text-slate-900 dark:text-white 
+                       py-3 px-6 rounded-2xl shadow-2xl font-bold text-lg sm:text-xl
+                       // Animation: Popup on load
+                       animate-pop-in border border-slate-200 dark:border-slate-600"
+            style={{ 
+                top: '-1rem', // Shift up slightly
+            }} 
+        >
+            Hi! I'm Jethro.
+            {/* Speech Bubble Pointer (Triangle Tail - Increased Size) */}
+            <div 
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full 
+                         w-0 h-0 border-x-10 border-x-transparent border-t-10 
+                         border-t-white dark:border-t-slate-700"
+            ></div>
+        </div>
+        {/* --- END WHISPER SPEECH BUBBLE --- */}
         <div className="w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-1 mx-auto relative z-10">
           <div className="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden relative"> 
            <img 
@@ -318,7 +340,7 @@ const VideoCV = () => {
               </div>
               <div className="absolute bottom-6 left-6 text-left">
                 <p className="text-white font-bold text-lg">My Journey in Tech</p>
-                <p className="text-slate-300 text-sm">1:45 • Full Introduction</p>
+                <p className="text-slate-300 text-sm">1:45 • Video CV</p>
               </div>
             </div>
           ) : (
@@ -536,12 +558,12 @@ const Resume = () => {
         <div className="bg-slate-800 p-8 rounded-2xl max-w-4xl mx-auto shadow-2xl border border-slate-700">
            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
              <div className="text-left space-y-4">
-               <h3 className="text-2xl font-bold">John Doe</h3>
-               <p className="text-slate-400">Senior Full Stack Developer</p>
+               <h3 className="text-2xl font-bold">Jethro P. Moleño</h3>
+               <p className="text-slate-400">Computer Engineer</p>
                <div className="flex flex-wrap gap-4 text-sm text-slate-300">
-                 <span>• 5+ Years Experience</span>
-                 <span>• B.S. Computer Science</span>
-                 <span>• 20+ Completed Projects</span>
+                 <span>• Fresh Graduate</span>
+                 <span>• BS in Computer Engineering specializing in Embedded Systems</span>
+                 <span>• 5+ Completed Projects</span>
                </div>
              </div>
              <div className="flex flex-col gap-3 w-full md:w-auto">
@@ -566,7 +588,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
            <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
-           <p className="text-slate-500 text-sm">© 2024 John Doe. All rights reserved.</p>
+           <p className="text-slate-500 text-sm">© 2025 Jethro P. Moleño. All rights reserved.</p>
         </div>
         <div className="flex gap-6">
            <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Github size={20} /></a>
