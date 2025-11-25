@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+// Ensure ProjectModal is accessible at this path:
+import ProjectModal from './ProjectModal';
 import {
   Github,
   Linkedin,
@@ -433,8 +435,8 @@ const Skills = () => {
   const devTools = [
     { name: "VS Code", icon: <Code2 size={20} /> },
     { name: "PyCharm", icon: <Code2 size={20} /> },
-    { name: "MATLAB", icon: <Calculator size={20} /> }, 
-    { name: "Arduino", icon: <Zap size={20} /> },      
+    { name: "MATLAB", icon: <Calculator size={20} /> },
+    { name: "Arduino", icon: <Zap size={20} /> },
     { name: "TensorFlow", icon: <Braces size={20} /> },
     { name: "PyTorch", icon: <Braces size={20} /> },
   ];
@@ -577,106 +579,101 @@ const Services = () => {
   );
 };
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "E-Commerce Dashboard",
-      desc: "A comprehensive analytics dashboard for online retailers featuring real-time data visualization.",
-      tags: ["React", "Chart.js", "Firebase"],
-      color: "bg-blue-500"
-    },
-    {
-      title: "AI Task Manager",
-      desc: "Smart to-do list application that uses NLP to categorize and prioritize tasks automatically.",
-      tags: ["TypeScript", "OpenAI API", "Node.js"],
-      color: "bg-purple-500"
-    },
-    {
-      title: "Social Media App",
-      desc: "A lightweight social platform focused on photography communities with image processing features.",
-      tags: ["React Native", "AWS S3", "GraphQL"],
-      color: "bg-pink-500"
-    }
-  ];
+const projectsData = [
+  {
+    title: "Tomato Leaf Disease Detection",
+    description: "This project uses YOLO (You Only Look Once) to detect and classify tomato leaf conditions into healthy, early blight, late blight, and leaf mold categories. The model is trained on a dataset of annotated images and deployed as a desktop application for real-time detection.",
+    techStack: ["Python", "YOLOv5", "PyTorch", "NumPy", "Matplotlib"],
+    image: "/images/project-ai-classifier.jpg", // Image for the card preview
+    
+    // MODAL FIELDS
+    imagePreviewUrl: "/images/project-ai-classifier-modal.jpg", // High-res image for modal
+    summary: "Tomatoes stand out as a prevalent crop extensively employed in cooking and extensively cultivated by farmers. Yet, challenges persist in their cultivation, notably concerning leaf diseases that can impede their growth. This project aims to address such challenges through the implementation of a tomato leaf disease detection model employing the YOLOv5 algorithm. The dataset utilized, sourced from Kaggle, comprises 737 images of tomato leaves. The obtained results demonstrate the model's effectiveness, achieving a mean Average Precision (mAP) score of 76.07%. This underscores its potential utility in the tomato farming sector.",
+    features: [
+      "Automated disease detection",
+      "High accuracy using deep learning",
+      "Trained with YOLOv5",
+      "Clean dataset with bounding boxes",
+      "Easy-to-run inference script",
+      "Visualized predictions and charts"
+    ],
+    documentationLink: "https://github.com/jethromoleno/tomato-leaf-disease-detection-yolo/blob/main/Tomato%20Leaf%20Diseas%20Detection%20using%20YOLO%20Algorithm.pdf",
+  },
+  {
+    title: "CreativeCard: Greeting Card Image Generator ",
+    description: "CreativeCard is an AI-powered greeting card generator built with Stable Diffusion XL (SDXL). Users can generate high-quality greeting card images with custom prompts, add short messages, and export the final card easily.",
+    techStack: ["Stable Diffusion XL", "Generative AI", "Python", "diffusers", "CustomTKinter", "PIL", "NumPy", "OS", "Fork", "Transformers", "ctypes", "threading"],
+    image: "/images/project-iot-hub.jpg",
+    
+    // MODAL FIELDS
+    imagePreviewUrl: "/images/project-iot-hub-modal.jpg",
+    summary: "Designed and implemented a low-power embedded system utilizing an ESP32 micro-controller to act as a secure, local hub for various IoT sensors and actuators via the MQTT protocol.",
+    features: [
+      "🧠 Powered by Stable Diffusion XL",
+      "🎨 Generates greeting card styles (birthday, wedding, anniversary, Christmas, etc.)",
+      "📄 Add custom text on the generated card",
+      "🖼️ Adjustable resolution (up to 1429 × 2000 px — user preference)",
+      "⚙️ Loading bar inside the generation frame (UX improvement)",
+      "🚫 Disable “Generate” button while image is generating",
+      "💾 Save image via button (consistent UI size)",
+      "🖥️ CustomTkinter GUI for modern UI feel"
+    ],
+    documentationLink: "https://github.com/jethromoleno/creativecard-greeting-card-image-generator-using-stable-diffusion-xl/blob/main/docs/CreativeCard_Documentation.pdf",
+    liveLink: "https://www.youtube.com/watch?v=LSXt0PSaVdM"
+  },
+  {
+    title: "Farm Monitoring System",
+    description: "A smart IoT-based farm monitoring system designed to measure soil moisture, temperature, humidity, and other environmental factors using an ESP8266 microcontroller, with real-time data sent to a cloud dashboard.",
+    techStack: ["IOT", "Arduino", "MATLAB", "ESP8266", "ThingSpeak", "C++"],
+    image: "/images/project-iot-hub.jpg",
+    
+    // MODAL FIELDS
+    imagePreviewUrl: "/images/project-iot-hub-modal.jpg",
+    summary: "This project provides real-time monitoring of important farm conditions using an ESP8266 NodeMCU and multiple sensors. The system is capable of reading soil moisture levels, monitoring temperature & humidity, sending sensor data to the cloud via WiFi, displaying readings on a web or mobile dashboard and triggering alerts in Twitter or X platform. This kind of system helps farmers make data-driven decisions on irrigation and climate control.",
+    features: [
+      "🌡️ Temperature & Humidity monitoring (DHT11/DHT22)",
+      "💧 Soil moisture sensor readings",
+      "📡 WiFi-enabled using ESP8266",
+      "☁️ Cloud upload via MQTT or HTTP",
+      "📊 Web dashboard in ThingSpeak for real-time visualization",
+      "⚡ Low-power edge computing",
+      "🔔 Supports threshold alerts"
+    ],
+    documentationLink: "https://github.com/jethromoleno/farm-monitoring-system-esp8266/blob/main/docs/Farm%20Monitoring%20System%20IEEE.pdf",
+    liveLink: "https://www.youtube.com/watch?v=-_rWHuWXixQ&list=PLm9t4xqFME-R6XbS7SNT1EwwjI3T4-Rnm&index=3"
+  },
+  // Add more projects here following the same structure...
+];
 
-  return (
-    <section id="projects" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="w-full">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Featured Projects</h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-            A selection of my recent work and personal projects.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
-            <div key={idx} className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
-              {/* Mock Project Image */}
-              <div className={`h-48 ${project.color} opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center`}>
-                <Code2 className="text-white/50 w-20 h-20" />
-              </div>
-
-              <div className="p-8">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{project.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 line-clamp-2">
-                  {project.desc}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <a href="#" className="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600">
-                    <Github size={16} /> View Code
-                  </a>
-                  <a href="#" className="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600">
-                    <ExternalLink size={16} /> Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// MODIFIED: Renamed Resume to Contact Me and removed its original content.
 const Resume = () => {
+  // Since you moved the content to VideoCV (#about), this section can hold a simple contact form or a link summary.
+  // For now, let's keep it simple to ensure the App doesn't crash.
   return (
-    // ID remains #resume to avoid breaking the Hero component link, but the content is now Contact Me
-    <section id="resume" className="min-h-screen flex items-center py-20 bg-slate-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
-        <h2 className="text-3xl font-bold mb-8">Contact Me</h2>
-
-        <div className="bg-slate-800 p-8 rounded-2xl max-w-2xl mx-auto shadow-2xl border border-slate-700">
-          <p className="text-xl mb-6 text-slate-300">
-            I'm currently seeking new opportunities and open to discussing potential projects.
-          </p>
+    <section id="resume" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="w-full text-center">
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Contact Me & Download Resume</h2>
+        <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+          The full Resume details and download link are available in the **About Me** section above.
+        </p>
+        
+        {/* Re-using the download/contact links */}
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://raw.githubusercontent.com/jethromoleno/MyWebfolio/main/profile-assets/Moleno_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            <Download size={20} /> Download PDF
+          </a>
           <a
             href="mailto:jethromoleno@gmail.com"
-            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-medium transition-colors transform hover:scale-105"
+            className="flex items-center justify-center gap-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-white px-6 py-3 rounded-lg font-medium transition-colors"
           >
-            <Mail size={24} /> Send an Email
+            <Mail size={20} /> Send Email
           </a>
-          <div className="mt-8 pt-4 border-t border-slate-700 flex flex-wrap justify-center gap-6 text-slate-400">
-            <a href="https://github.com/jethromoleno" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
-              <Github size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/jethromoleno" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
-              <Linkedin size={24} />
-            </a>
-          </div>
         </div>
-
-        <div className="h-20"></div> {/* Extra space at bottom */}
       </div>
     </section>
   );
@@ -698,6 +695,90 @@ const Footer = () => {
       </div>
     </footer>
   );
+};
+
+// --- PROJECTS COMPONENT (Updated with Pulse Effect) ---
+
+export const Projects = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState(null);
+
+    const openModal = (project) => {
+        setSelectedProject(project);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedProject(null);
+    };
+
+    return (
+        <section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white text-center mb-16 flex items-center justify-center gap-4">
+                <Cpu size={36} className="text-red-500" /> Projects
+            </h1>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {projectsData.map((project, index) => (
+                    <div 
+                        key={index}
+                        onClick={() => openModal(project)} 
+                        className="
+                            bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg 
+                            hover:shadow-2xl transition-all duration-300 cursor-pointer 
+                            border border-slate-200 dark:border-slate-700 group
+                            
+                            // 💡 NEW: Tailwind classes for the pulse effect
+                            hover:scale-[1.02] // Slightly scale up
+                            hover:ring-4 hover:ring-blue-500/50 // Add a semi-transparent ring
+                        "
+                    >
+                        {/* ... rest of the card content ... */}
+                        
+                        {/* Project Card Image Preview */}
+                        <div className="h-40 mb-4 overflow-hidden rounded-lg">
+                            <img 
+                                src={project.image} 
+                                alt={project.title} 
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+
+                        {/* Project Card Content */}
+                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{project.title}</h3>
+                        <p className="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
+                        
+                        {/* Tech Stack Chips (limited display on card) */}
+                        <div className="flex flex-wrap gap-2 mt-4">
+                            {project.techStack.slice(0, 3).map((tech) => (
+                                <span key={tech} className="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 rounded-md text-xs font-medium">
+                                    {tech}
+                                </span>
+                            ))}
+                            {project.techStack.length > 3 && (
+                                <span className="px-3 py-1 text-slate-500 dark:text-slate-500 text-xs font-medium">
+                                    + {project.techStack.length - 3} more
+                                </span>
+                            )}
+                        </div>
+                        
+                        <div className="mt-4 text-blue-600 dark:text-orange-400 font-semibold flex items-center gap-2">
+                            View Details <ExternalLink size={16} />
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+            
+            {/* 3. Render the Modal */}
+            <ProjectModal 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                project={selectedProject} 
+            />
+        </section>
+    );
 };
 
 export default function App() {
