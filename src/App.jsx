@@ -584,10 +584,10 @@ const projectsData = [
     title: "Tomato Leaf Disease Detection",
     description: "This project uses YOLO (You Only Look Once) to detect and classify tomato leaf conditions into healthy, early blight, late blight, and leaf mold categories. The model is trained on a dataset of annotated images and deployed as a desktop application for real-time detection.",
     techStack: ["Python", "YOLOv5", "PyTorch", "NumPy", "Matplotlib"],
-    image: "/images/project-ai-classifier.jpg", // Image for the card preview
+    image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/TomatoLeafDiseaseDetection.jpg", // Image for the card preview
     
     // MODAL FIELDS
-    imagePreviewUrl: "/images/project-ai-classifier-modal.jpg", // High-res image for modal
+    imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/TomatoLeafDiseaseDetection.jpg", // High-res image for modal
     summary: "Tomatoes stand out as a prevalent crop extensively employed in cooking and extensively cultivated by farmers. Yet, challenges persist in their cultivation, notably concerning leaf diseases that can impede their growth. This project aims to address such challenges through the implementation of a tomato leaf disease detection model employing the YOLOv5 algorithm. The dataset utilized, sourced from Kaggle, comprises 737 images of tomato leaves. The obtained results demonstrate the model's effectiveness, achieving a mean Average Precision (mAP) score of 76.07%. This underscores its potential utility in the tomato farming sector.",
     features: [
       "Automated disease detection",
@@ -603,10 +603,10 @@ const projectsData = [
     title: "CreativeCard: Greeting Card Image Generator ",
     description: "CreativeCard is an AI-powered greeting card generator built with Stable Diffusion XL (SDXL). Users can generate high-quality greeting card images with custom prompts, add short messages, and export the final card easily.",
     techStack: ["Stable Diffusion XL", "Generative AI", "Python", "diffusers", "CustomTKinter", "PIL", "NumPy", "OS", "Fork", "Transformers", "ctypes", "threading"],
-    image: "/images/project-iot-hub.jpg",
+    image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CreativeCard.jpg",
     
     // MODAL FIELDS
-    imagePreviewUrl: "/images/project-iot-hub-modal.jpg",
+    imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CreativeCard.jpg",
     summary: "Designed and implemented a low-power embedded system utilizing an ESP32 micro-controller to act as a secure, local hub for various IoT sensors and actuators via the MQTT protocol.",
     features: [
       "🧠 Powered by Stable Diffusion XL",
@@ -625,10 +625,10 @@ const projectsData = [
     title: "Farm Monitoring System",
     description: "A smart IoT-based farm monitoring system designed to measure soil moisture, temperature, humidity, and other environmental factors using an ESP8266 microcontroller, with real-time data sent to a cloud dashboard.",
     techStack: ["IOT", "Arduino", "MATLAB", "ESP8266", "ThingSpeak", "C++"],
-    image: "/images/project-iot-hub.jpg",
+    image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
     
     // MODAL FIELDS
-    imagePreviewUrl: "/images/project-iot-hub-modal.jpg",
+    imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
     summary: "This project provides real-time monitoring of important farm conditions using an ESP8266 NodeMCU and multiple sensors. The system is capable of reading soil moisture levels, monitoring temperature & humidity, sending sensor data to the cloud via WiFi, displaying readings on a web or mobile dashboard and triggering alerts in Twitter or X platform. This kind of system helps farmers make data-driven decisions on irrigation and climate control.",
     features: [
       "🌡️ Temperature & Humidity monitoring (DHT11/DHT22)",
@@ -641,6 +641,26 @@ const projectsData = [
     ],
     documentationLink: "https://github.com/jethromoleno/farm-monitoring-system-esp8266/blob/main/docs/Farm%20Monitoring%20System%20IEEE.pdf",
     liveLink: "https://www.youtube.com/watch?v=-_rWHuWXixQ&list=PLm9t4xqFME-R6XbS7SNT1EwwjI3T4-Rnm&index=3"
+  },
+  {
+    title: "Car Parking System",
+    description: "A digital logic project implemented using Verilog HDL, demonstrating the use of Finite State Machines (FSM), counters, and combinational/sequential logic to build an automated car parking gate control system.",
+    techStack: ["Verilog", "FSM", "ModelSim"],
+    image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
+    
+    // MODAL FIELDS
+    imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
+    summary: "This project simulates a smart parking system given a specific problem statement by our professor.",
+    features: [
+      "🚘 Car entry detection",
+      "🚙 Car exit detection",
+      "🚧 Gate control via FSM",
+      "⏱️ Timer-based open/close sequence",
+      "🧪 Complete testbench for simulation",
+      "🧠 Finite State Machine (FSM)",
+    ],
+    documentationLink: "https://github.com/jethromoleno/car-parking-system-using-Verilog/blob/main/docs/Car%20Parking%20System%20using%20Verilog.pdf",
+    liveLink: "https://www.youtube.com/watch?v=Ikq_04IKjJQ&t=2s"
   },
   // Add more projects here following the same structure...
 ];
