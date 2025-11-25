@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  Download, 
-  ExternalLink, 
-  Code2, 
-  Palette, 
-  Terminal, 
-  Cpu, 
-  Globe, 
-  MessageSquare, 
-  Play, 
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Download,
+  ExternalLink,
+  Code2,
+  Palette,
+  Terminal,
+  Cpu,
+  Globe,
+  MessageSquare,
+  Play,
   X,
   Menu,
   Monitor,
@@ -39,7 +39,7 @@ const useActiveSection = (sectionIds) => {
           }
         });
       },
-      { 
+      {
         root: null, // relative to the viewport
         rootMargin: '-30% 0px -30% 0px', // Center of viewport defines the active section
         threshold: 0.5 // Section must be 50% visible
@@ -80,7 +80,7 @@ const Navigation = ({ activeSection }) => {
     { name: 'Projects', href: '#projects', icon: Layers },
     { name: 'Resume', href: '#resume', icon: FileText },
   ];
-  
+
   const handleLinkClick = (e, href) => {
     e.preventDefault();
     const targetId = href.substring(1);
@@ -98,10 +98,10 @@ const Navigation = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Portfolio.
+              myPortfolio.
             </span>
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {links.map((link) => {
@@ -111,11 +111,10 @@ const Navigation = ({ activeSection }) => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`text-sm font-medium transition-colors relative group ${
-                    isActive
+                  className={`text-sm font-medium transition-colors relative group ${isActive
                       ? 'text-blue-600 dark:text-blue-400'
                       : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400'
-                  }`}
+                    }`}
                 >
                   {link.name}
                   {/* Active indicator bar */}
@@ -146,11 +145,10 @@ const Navigation = ({ activeSection }) => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className={`flex items-center gap-3 px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isActive
+                  className={`flex items-center gap-3 px-3 py-2 rounded-md text-base font-medium transition-colors ${isActive
                       ? 'text-white bg-blue-600'
                       : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 hover:bg-slate-50 dark:hover:bg-slate-800'
-                  }`}
+                    }`}
                 >
                   <Icon size={20} /> {link.name}
                 </a>
@@ -170,18 +168,18 @@ const Hero = () => {
     <section id="home" className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
       <div className="flex-1 space-y-6 text-center lg:text-left">
         <h2 className="text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase text-sm">
-          Software Developer & Freelancer
+          Fresh Computer Engineering Graduate
         </h2>
         <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Building digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">experiences</span> that matter.
+          From logic to intelligence: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Engineering</span> the digital future.
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
           I craft robust web applications and intuitive user interfaces. Passionate about solving complex problems with clean, efficient code.
         </p>
-        
+
         <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
           <a href="#projects" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25">
-            View My Work
+            My Recent Projects
           </a>
           <a href="#contact" className="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-full font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
             Contact Me
@@ -194,17 +192,17 @@ const Hero = () => {
           <a href="#" className="hover:text-blue-600 transition-colors"><Mail size={24} /></a>
         </div>
       </div>
-      
+
       <div className="flex-1 relative">
         <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 p-1 mx-auto relative z-10">
           <div className="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden relative">
             {/* Placeholder for Profile Image */}
             <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-               <span className="text-6xl">👋</span>
+              <span className="text-6xl">👋</span>
             </div>
-            <img 
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" 
-              alt="Profile" 
+            <img
+              src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+              alt="Profile"
               className="w-full h-full object-cover"
             />
           </div>
@@ -225,13 +223,13 @@ const VideoCV = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Video Introduction</h2>
         <p className="text-slate-600 dark:text-slate-400 mb-12">Get to know me in 60 seconds.</p>
-        
+
         <div className="relative aspect-video bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
           {!isPlaying ? (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-900/40 hover:bg-slate-900/30 transition-colors cursor-pointer group" onClick={() => setIsPlaying(true)}>
               <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center pl-1 shadow-lg">
-                   <Play size={32} className="text-white" fill="currentColor" />
+                  <Play size={32} className="text-white" fill="currentColor" />
                 </div>
               </div>
               <div className="absolute bottom-6 left-6 text-left">
@@ -240,9 +238,9 @@ const VideoCV = () => {
               </div>
             </div>
           ) : (
-              <div className="w-full h-full flex items-center justify-center text-white bg-slate-800">
-                <p className="animate-pulse">Video Player Placeholder (Embed YouTube/Vimeo here)</p>
-              </div>
+            <div className="w-full h-full flex items-center justify-center text-white bg-slate-800">
+              <p className="animate-pulse">Video Player Placeholder (Embed YouTube/Vimeo here)</p>
+            </div>
           )}
         </div>
       </div>
@@ -283,7 +281,7 @@ const Skills = () => {
                   <span className="text-blue-600 font-bold">{skill.level}%</span>
                 </div>
                 <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                  <div 
+                  <div
                     className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
                     style={{ width: `${skill.level}%` }}
                   ></div>
@@ -304,13 +302,12 @@ const Skills = () => {
                 <h3 className="font-bold text-lg text-slate-800 dark:text-white mb-2">{skill.name}</h3>
                 <div className="flex gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <div 
-                      key={i} 
-                      className={`h-2 flex-1 rounded-full ${
-                        i < Math.floor(skill.level / 20) 
-                          ? 'bg-purple-500' 
+                    <div
+                      key={i}
+                      className={`h-2 flex-1 rounded-full ${i < Math.floor(skill.level / 20)
+                          ? 'bg-purple-500'
                           : 'bg-slate-200 dark:bg-slate-700'
-                      }`}
+                        }`}
                     />
                   ))}
                 </div>
@@ -399,49 +396,49 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="w-full">
-           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Featured Projects</h2>
-            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              A selection of my recent work and personal projects.
-            </p>
-          </div>
+      <div className="w-full">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4">Featured Projects</h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            A selection of my recent work and personal projects.
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, idx) => (
-              <div key={idx} className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
-                {/* Mock Project Image */}
-                <div className={`h-48 ${project.color} opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center`}>
-                    <Code2 className="text-white/50 w-20 h-20" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, idx) => (
+            <div key={idx} className="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all">
+              {/* Mock Project Image */}
+              <div className={`h-48 ${project.color} opacity-80 group-hover:opacity-100 transition-opacity flex items-center justify-center`}>
+                <Code2 className="text-white/50 w-20 h-20" />
+              </div>
+
+              <div className="p-8">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{project.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 line-clamp-2">
+                  {project.desc}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-                
-                <div className="p-8">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{project.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6 line-clamp-2">
-                    {project.desc}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
 
-                  <div className="flex gap-4">
-                    <a href="#" className="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600">
-                      <Github size={16} /> View Code
-                    </a>
-                    <a href="#" className="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600">
-                      <ExternalLink size={16} /> Live Demo
-                    </a>
-                  </div>
+                <div className="flex gap-4">
+                  <a href="#" className="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600">
+                    <Github size={16} /> View Code
+                  </a>
+                  <a href="#" className="flex items-center gap-2 text-sm font-medium text-slate-900 dark:text-white hover:text-blue-600">
+                    <ExternalLink size={16} /> Live Demo
+                  </a>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
+      </div>
     </section>
   );
 };
@@ -452,25 +449,25 @@ const Resume = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
         <h2 className="text-3xl font-bold mb-8">Resume</h2>
         <div className="bg-slate-800 p-8 rounded-2xl max-w-4xl mx-auto shadow-2xl border border-slate-700">
-           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-             <div className="text-left space-y-4">
-               <h3 className="text-2xl font-bold">John Doe</h3>
-               <p className="text-slate-400">Senior Full Stack Developer</p>
-               <div className="flex flex-wrap gap-4 text-sm text-slate-300">
-                 <span>• 5+ Years Experience</span>
-                 <span>• B.S. Computer Science</span>
-                 <span>• 20+ Completed Projects</span>
-               </div>
-             </div>
-             <div className="flex flex-col gap-3 w-full md:w-auto">
-               <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                 <Download size={20} /> Download PDF
-               </button>
-               <button className="flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                 <ExternalLink size={20} /> Preview in Browser
-               </button>
-             </div>
-           </div>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-left space-y-4">
+              <h3 className="text-2xl font-bold">John Doe</h3>
+              <p className="text-slate-400">Senior Full Stack Developer</p>
+              <div className="flex flex-wrap gap-4 text-sm text-slate-300">
+                <span>• 5+ Years Experience</span>
+                <span>• B.S. Computer Science</span>
+                <span>• 20+ Completed Projects</span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-3 w-full md:w-auto">
+              <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                <Download size={20} /> Download PDF
+              </button>
+              <button className="flex items-center justify-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                <ExternalLink size={20} /> Preview in Browser
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -482,13 +479,13 @@ const Footer = () => {
     <footer className="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-           <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
-           <p className="text-slate-500 text-sm">© 2024 John Doe. All rights reserved.</p>
+          <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
+          <p className="text-slate-500 text-sm">© 2024 John Doe. All rights reserved.</p>
         </div>
         <div className="flex gap-6">
-           <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Github size={20} /></a>
-           <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={20} /></a>
-           <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={20} /></a>
+          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Github size={20} /></a>
+          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={20} /></a>
+          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={20} /></a>
         </div>
       </div>
     </footer>
