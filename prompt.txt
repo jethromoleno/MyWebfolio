@@ -1,0 +1,109 @@
+Personal Portfolio Website: Tech Stack & AI Prompt Guide
+
+1. Recommended Tech Stack
+
+Based on your requirements, here is the optimal tech stack:
+
+Core Framework: React (with TypeScript)
+
+Why: React is the industry standard. It allows you to modularize your "Projects," "Skills," and "Services" into reusable components. Using TypeScript ensures your code is robust and less prone to errors, which is great to show off in a portfolio code review.
+
+Alternative: If you want absolute simplicity and don't plan on complex interactivity, HTML/CSS/JavaScript is fine. However, React is much better for showcasing "employable" skills.
+
+Styling: Tailwind CSS
+
+Why: It speeds up development significantly. You can make the site responsive (mobile-friendly) just by adding utility classes (e.g., md:flex-row). It looks clean and modern out of the box.
+
+Icons: Lucide React or FontAwesome
+
+Why: You need consistent icons for your social media and contact info.
+
+Animations: Framer Motion
+
+Why: Portfolios need a "wow" factor. Framer Motion makes it easy to add fade-ins and smooth scrolling without complex CSS keyframes.
+
+2. Structured Prompt for Google AI Studio
+
+Copy and paste the text below into Google AI Studio. This prompt uses "Role Prompting" and "Chain of Thought" techniques to get the best result.
+
+Prompt Starts Here:
+
+Role:
+You are an expert Senior Frontend Developer and UI/UX Designer specializing in building high-conversion personal portfolio websites.
+
+Objective:
+Create a complete, responsive, and visually stunning personal portfolio website code.
+
+Tech Stack:
+
+Framework: React (Functional Components with Hooks)
+
+Styling: Tailwind CSS
+
+Icons: Lucide-React
+
+Language: JavaScript or TypeScript
+
+Website Sections & Requirements:
+Please include the following distinct sections, ensuring smooth navigation between them:
+
+Header/Navigation:
+
+Sticky navbar with links to sections.
+
+Dark/Light mode toggle (optional but preferred).
+
+Hero Section (Personal Info):
+
+A catchy headline (e.g., "Hi, I'm [Name], a [Role]").
+
+Brief bio.
+
+Call to Action (CTA) buttons: "Download Resume" and "Contact Me".
+
+Social Media Links: GitHub, LinkedIn, Email, Twitter (use icons).
+
+Video CV Section:
+
+A dedicated, stylish area to embed a video introduction.
+
+Use a placeholder video or a thumbnail that opens a modal.
+
+Skills Section:
+
+Split into "Technical Skills" (e.g., React, Python) and "Non-Technical/Soft Skills" (e.g., Leadership, Communication).
+
+Display these visually using progress bars, badges, or circular charts.
+
+Services Section:
+
+3-4 cards outlining freelancing services (e.g., "Web Development," "UI Design," "Consulting").
+
+Include a brief description and an icon for each.
+
+Portfolio/Projects Section:
+
+A grid of cards displaying previous work.
+
+Each card must have: Project Title, Thumbnail Image (placeholder), Short Description, "View Code" link, and "Live Demo" link.
+
+Resume Section:
+
+A preview area (image or PDF embed placeholder).
+
+A prominent "Download PDF" button.
+
+Footer:
+
+Copyright info and quick links.
+
+Design Guidelines:
+
+Aesthetic: Minimalist, clean, and modern. Use a cohesive color palette.
+
+Responsiveness: The site must look perfect on mobile phones, tablets, and desktops.
+
+Interactivity: Add subtle hover effects on buttons and cards.
+
+Output:
+Provide the complete code in a single file (or clear file structure) so I can run it immediately. If using React, use standard Tailwind classes.
