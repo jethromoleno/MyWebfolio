@@ -167,29 +167,48 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
       <div className="flex-1 space-y-6 text-center lg:text-left">
-        <h2 className="text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase text-sm">
-          Fresh Computer Engineering Graduate
+        <h2 className="text-blue-600 dark:text-blue-400 font-semibold tracking-wide uppercase text-lg">
+          Computer Engineering Graduate
         </h2>
         <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           From logic to intelligence: <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Engineering</span> the digital future.
         </h1>
         <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
-          I craft robust web applications and intuitive user interfaces. Passionate about solving complex problems with clean, efficient code.
+          I apply my Computer Engineering foundation to architect full-stack, data-driven software, specializing in robust web applications and emerging AI/ML solutions.
         </p>
 
         <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
           <a href="#projects" className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-medium transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25">
-            My Recent Projects
+            View My Work
           </a>
-          <a href="#contact" className="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-full font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+          <a href="#resume" className="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-full font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
             Contact Me
           </a>
         </div>
 
         <div className="flex justify-center lg:justify-start gap-6 pt-6 text-slate-500 dark:text-slate-400">
-          <a href="#" className="hover:text-blue-600 transition-colors"><Github size={24} /></a>
-          <a href="#" className="hover:text-blue-600 transition-colors"><Linkedin size={24} /></a>
-          <a href="#" className="hover:text-blue-600 transition-colors"><Mail size={24} /></a>
+          <a 
+            href="https://github.com/jethromoleno" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-blue-600 transition-colors"
+          >
+            <Github size={28} />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/jethromoleno" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hover:text-blue-600 transition-colors"
+          >
+            <Linkedin size={28} />
+          </a>
+          <a 
+            href="mailto:jethromoleno@gmail.com" 
+            className="hover:text-blue-600 transition-colors"
+          >
+            <Mail size={28} />
+          </a>
         </div>
       </div>
 
@@ -200,10 +219,15 @@ const Hero = () => {
             <div className="absolute inset-0 flex items-center justify-center text-slate-400">
               <span className="text-6xl">👋</span>
             </div>
-            <img
-              src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
-              alt="Profile"
+            <img 
+              src={profileImageUrl}
+              alt="Profile" 
               className="w-full h-full object-cover"
+              // Optional: Add onerror to show a default if your link fails
+              onError={(e) => {
+                e.target.onerror = null; // prevents infinite loop
+                e.target.src = "https://placehold.co/500x500/667EEA/ffffff?text=Image+Loading+Failed"; 
+              }}
             />
           </div>
         </div>
