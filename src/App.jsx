@@ -120,6 +120,10 @@ const GoToTopButton = ({ isVisible }) => {
 
 // --- Components ---
 
+const YOUR_GITHUB_URL = "https://github.com/jethromoleno";
+const YOUR_LINKEDIN_URL = "https://linkedin.com/in/jethromoleno";
+const YOUR_EMAIL = "jethromoleno@gmail.com";
+
 const Navigation = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -251,7 +255,7 @@ const Hero = () => {
           {/* 3. "Contact Me" links to #resume */}
           <a
             href="#resume"
-            onClick={(e) => handleSmoothScroll(e, '#resume')}
+            onClick={(e) => handleSmoothScroll(e, '#contact')}
             className="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white rounded-full font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
           >
             Contact Me
@@ -261,7 +265,7 @@ const Hero = () => {
         {/* 4. INCREASE ICON SIZE (size={24} -> size={28}) */}
         <div className="flex justify-center lg:justify-start gap-6 pt-6 text-slate-500 dark:text-slate-400">
           <a
-            href="https://github.com/jethromoleno"
+            href={YOUR_GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600 transition-colors"
@@ -269,7 +273,7 @@ const Hero = () => {
             <Github size={28} />
           </a>
           <a
-            href="https://www.linkedin.com/in/jethromoleno"
+            href={YOUR_LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-600 transition-colors"
@@ -277,7 +281,7 @@ const Hero = () => {
             <Linkedin size={28} />
           </a>
           <a
-            href="mailto:jethromoleno@gmail.com"
+            href={`mailto:${YOUR_EMAIL}`}
             className="hover:text-blue-600 transition-colors"
           >
             <Mail size={28} />
@@ -926,11 +930,41 @@ const Footer = () => {
           <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
           <p className="text-slate-500 text-sm">© 2025 Jethro P. Moleño. All rights reserved.</p>
         </div>
+        
+        {/* --- Social Icons Container with Links --- */}
         <div className="flex gap-6">
-          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Github size={20} /></a>
-          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Linkedin size={20} /></a>
-          <a href="#" className="text-slate-400 hover:text-blue-600 transition-colors"><Mail size={20} /></a>
+          {/* 1. GitHub Icon */}
+          <a 
+            href={YOUR_GITHUB_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-blue-600 transition-colors"
+            aria-label="GitHub Profile"
+          >
+            <Github size={20} />
+          </a>
+          
+          {/* 2. LinkedIn Icon */}
+          <a 
+            href={YOUR_LINKEDIN_URL} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-blue-600 transition-colors"
+            aria-label="LinkedIn Profile"
+          >
+            <Linkedin size={20} />
+          </a>
+          
+          {/* 3. Mail Icon */}
+          <a 
+            href={`mailto:${YOUR_EMAIL}`} 
+            className="text-slate-400 hover:text-blue-600 transition-colors"
+            aria-label="Send Email"
+          >
+            <Mail size={20} />
+          </a>
         </div>
+        
       </div>
     </footer>
   );
