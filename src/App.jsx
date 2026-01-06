@@ -435,8 +435,8 @@ const Skills = () => {
   ];
 
   const softSkills = [
-    { name: "Analytical", level: 95 },
-    { name: "Problem Solving", level: 95 },
+    { name: "Analytical", level: 90 },
+    { name: "Problem Solving", level: 90 },
     { name: "Team Leadership", level: 95 },
     { name: "Communication", level: 80 },
     { name: "Project Management", level: 70 },
