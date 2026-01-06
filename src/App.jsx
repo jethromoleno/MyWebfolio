@@ -429,7 +429,7 @@ const Skills = () => {
     { name: "C++", level: 70, icon: <Code2 size={20} /> },
     { name: "C#", level: 60, icon: <Code2 size={20} /> },
     { name: "JavaScript", level: 40, icon: <Code2 size={20} /> },
-    { name: "MATLAB", level: 40, icon: <Code2 size={20} /> },
+    { name: "MATLAB", level: 60, icon: <Code2 size={20} /> },
     { name: "SQL (PostgreSQL)", level: 70, icon: <Database size={20} /> },
     { name: "REST APIs", level: 70, icon: <Layout size={20} /> },
   ];
@@ -445,8 +445,8 @@ const Skills = () => {
   const devTools = [
     { name: "VS Code", icon: <Code2 size={20} /> },
     { name: "PyCharm", icon: <Code2 size={20} /> },
-    { name: "Docker", icon: <Docker size={20} /> },
     { name: "MATLAB", icon: <Calculator size={20} /> },
+    { name: "Docker", icon: <Code2 size={20} /> },
     { name: "Arduino", icon: <Zap size={20} /> },
     { name: "TensorFlow", icon: <Braces size={20} /> },
     { name: "PyTorch", icon: <Braces size={20} /> },
