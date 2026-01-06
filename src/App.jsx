@@ -416,7 +416,7 @@ const Skills = () => {
   const categorySkills = [
     { name: "Machine Learning", icon: <Cpu size={20} /> },      // Data processing/AI
     { name: "Deep Learning", icon: <Brain size={20} /> },        // AI/Neural Networks
-    { name: "AI", icon: <Sparkles size={20} /> },                // Core AI
+    { name: "Edge AI", icon: <Sparkles size={20} /> },                // Core AI
     { name: "Automation", icon: <Zap size={20} /> },             // Process focus
     { name: "Computer Vision", icon: <Eye size={20} /> },         // Image/Video Processing
     { name: "Software Development", icon: <Code size={20} /> }, // Core development
@@ -428,7 +428,10 @@ const Skills = () => {
     { name: "Python", level: 90, icon: <Code2 size={20} /> },
     { name: "C++", level: 70, icon: <Code2 size={20} /> },
     { name: "C#", level: 60, icon: <Code2 size={20} /> },
-    { name: "C++", level: 60, icon: <Terminal size={20} /> },
+    { name: "JavaScript", level: 40, icon: <Code2 size={20} /> },
+    { name: "MATLAB", level: 40, icon: <Code2 size={20} /> },
+    { name: "SQL (PostgreSQL)", level: 70, icon: <Database size={20} /> },
+    { name: "REST APIs", level: 70, icon: <Layout size={20} /> },
   ];
 
   const softSkills = [
@@ -442,6 +445,7 @@ const Skills = () => {
   const devTools = [
     { name: "VS Code", icon: <Code2 size={20} /> },
     { name: "PyCharm", icon: <Code2 size={20} /> },
+    { name: "Docker", icon: <Docker size={20} /> },
     { name: "MATLAB", icon: <Calculator size={20} /> },
     { name: "Arduino", icon: <Zap size={20} /> },
     { name: "TensorFlow", icon: <Braces size={20} /> },
@@ -592,7 +596,7 @@ const projectsData = [
     description: "This project uses YOLO (You Only Look Once) to detect and classify tomato leaf conditions into healthy, early blight, late blight, and leaf mold categories. The model is trained on a dataset of annotated images and deployed as a desktop application for real-time detection.",
     techStack: ["Python", "YOLOv5", "PyTorch", "NumPy", "Matplotlib"],
     image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/TomatoLeafDiseaseDetection.jpg", // Image for the card preview
-    
+
     // MODAL FIELDS
     imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/TomatoLeafDiseaseDetection.jpg", // High-res image for modal
     summary: "Tomatoes stand out as a prevalent crop extensively employed in cooking and extensively cultivated by farmers. Yet, challenges persist in their cultivation, notably concerning leaf diseases that can impede their growth. This project aims to address such challenges through the implementation of a tomato leaf disease detection model employing the YOLOv5 algorithm. The dataset utilized, sourced from Kaggle, comprises 737 images of tomato leaves. The obtained results demonstrate the model's effectiveness, achieving a mean Average Precision (mAP) score of 76.07%. This underscores its potential utility in the tomato farming sector.",
@@ -611,7 +615,7 @@ const projectsData = [
     description: "CreativeCard is an AI-powered greeting card generator built with Stable Diffusion XL (SDXL). Users can generate high-quality greeting card images with custom prompts, add short messages, and export the final card easily.",
     techStack: ["Stable Diffusion XL", "Generative AI", "Python", "diffusers", "CustomTKinter", "PIL", "NumPy", "OS", "Fork", "Transformers", "ctypes", "threading"],
     image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CreativeCard.jpg",
-    
+
     // MODAL FIELDS
     imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CreativeCard.jpg",
     summary: "Designed and implemented a low-power embedded system utilizing an ESP32 micro-controller to act as a secure, local hub for various IoT sensors and actuators via the MQTT protocol.",
@@ -633,7 +637,7 @@ const projectsData = [
     description: "A smart IoT-based farm monitoring system designed to measure soil moisture, temperature, humidity, and other environmental factors using an ESP8266 microcontroller, with real-time data sent to a cloud dashboard.",
     techStack: ["IOT", "Arduino", "MATLAB", "ESP8266", "ThingSpeak", "C++"],
     image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
-    
+
     // MODAL FIELDS
     imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/FarmMonitoringSystem.jpg",
     summary: "This project provides real-time monitoring of important farm conditions using an ESP8266 NodeMCU and multiple sensors. The system is capable of reading soil moisture levels, monitoring temperature & humidity, sending sensor data to the cloud via WiFi, displaying readings on a web or mobile dashboard and triggering alerts in Twitter or X platform. This kind of system helps farmers make data-driven decisions on irrigation and climate control.",
@@ -654,7 +658,7 @@ const projectsData = [
     description: "A digital logic project implemented using Verilog HDL, demonstrating the use of Finite State Machines (FSM), counters, and combinational/sequential logic to build an automated car parking gate control system.",
     techStack: ["Verilog", "FSM", "ModelSim"],
     image: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CarParkingSystem.jpg",
-    
+
     // MODAL FIELDS
     imagePreviewUrl: "https://raw.githubusercontent.com/jethromoleno/MyWebfolio/refs/heads/main/project-images/CarParkingSystem.jpg",
     summary: "This project simulates a smart parking system given a specific problem statement by our professor.",
@@ -675,31 +679,31 @@ const projectsData = [
 // --- PROJECTS COMPONENT (Updated with Pulse Effect) ---
 
 export const Projects = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
-    const openModal = (project) => {
-        setSelectedProject(project);
-        setIsModalOpen(true);
-    };
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setSelectedProject(null);
-    };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
-    return (
-        <section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white text-center mb-16 flex items-center justify-center gap-4">
-                <Cpu size={36} className="text-red-500" /> Projects
-            </h1>
+  return (
+    <section id="projects" className="min-h-screen py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white text-center mb-16 flex items-center justify-center gap-4">
+        <Cpu size={36} className="text-red-500" /> Projects
+      </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {projectsData.map((project, index) => (
-                    <div 
-                        key={index}
-                        onClick={() => openModal(project)} 
-                        className="
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projectsData.map((project, index) => (
+          <div
+            key={index}
+            onClick={() => openModal(project)}
+            className="
                             bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg 
                             hover:shadow-2xl transition-all duration-300 cursor-pointer 
                             border border-slate-200 dark:border-slate-700 group
@@ -708,218 +712,218 @@ export const Projects = () => {
                             hover:scale-[1.02] // Slightly scale up
                             hover:ring-4 hover:ring-blue-500/50 // Add a semi-transparent ring
                         "
-                    >
-                        {/* ... rest of the card content ... */}
-                        
-                        {/* Project Card Image Preview */}
-                        <div className="h-40 mb-4 overflow-hidden rounded-lg">
-                            <img 
-                                src={project.image} 
-                                alt={project.title} 
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
+          >
+            {/* ... rest of the card content ... */}
 
-                        {/* Project Card Content */}
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{project.title}</h3>
-                        <p className="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
-                        
-                        {/* Tech Stack Chips (limited display on card) */}
-                        <div className="flex flex-wrap gap-2 mt-4">
-                            {project.techStack.slice(0, 3).map((tech) => (
-                                <span key={tech} className="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 rounded-md text-xs font-medium">
-                                    {tech}
-                                </span>
-                            ))}
-                            {project.techStack.length > 3 && (
-                                <span className="px-3 py-1 text-slate-500 dark:text-slate-500 text-xs font-medium">
-                                    + {project.techStack.length - 3} more
-                                </span>
-                            )}
-                        </div>
-                        
-                        <div className="mt-4 text-blue-600 dark:text-orange-400 font-semibold flex items-center gap-2">
-                            View Details <ExternalLink size={16} />
-                        </div>
-
-                    </div>
-                ))}
+            {/* Project Card Image Preview */}
+            <div className="h-40 mb-4 overflow-hidden rounded-lg">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            
-            {/* 3. Render the Modal */}
-            <ProjectModal 
-                isOpen={isModalOpen} 
-                onClose={closeModal} 
-                project={selectedProject} 
-            />
-        </section>
-    );
+
+            {/* Project Card Content */}
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{project.title}</h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
+
+            {/* Tech Stack Chips (limited display on card) */}
+            <div className="flex flex-wrap gap-2 mt-4">
+              {project.techStack.slice(0, 3).map((tech) => (
+                <span key={tech} className="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 rounded-md text-xs font-medium">
+                  {tech}
+                </span>
+              ))}
+              {project.techStack.length > 3 && (
+                <span className="px-3 py-1 text-slate-500 dark:text-slate-500 text-xs font-medium">
+                  + {project.techStack.length - 3} more
+                </span>
+              )}
+            </div>
+
+            <div className="mt-4 text-blue-600 dark:text-orange-400 font-semibold flex items-center gap-2">
+              View Details <ExternalLink size={16} />
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+      {/* 3. Render the Modal */}
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        project={selectedProject}
+      />
+    </section>
+  );
 };
 
 const Contacts = () => {
-    // 1. STATE MANAGEMENT
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
-    // status can be 'idle', 'submitting', 'success', 'error'
-    const [status, setStatus] = useState('idle'); 
-    const [responseMessage, setResponseMessage] = useState('');
-    
-    // Google Apps Script URL
-    const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycby1Mppp8U-rG9qnlq2onPlkA40xUvYcP1FTlmE5xfd-M8zYI_aSzZAw5uWtOfWI5oarPw/exec"; 
-    
-    // --- Handlers ---
-    
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  // 1. STATE MANAGEMENT
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  // status can be 'idle', 'submitting', 'success', 'error'
+  const [status, setStatus] = useState('idle');
+  const [responseMessage, setResponseMessage] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault(); // <-- 🛑 PREVENTS PAGE REDIRECT
+  // Google Apps Script URL
+  const FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycby1Mppp8U-rG9qnlq2onPlkA40xUvYcP1FTlmE5xfd-M8zYI_aSzZAw5uWtOfWI5oarPw/exec";
 
-        setStatus('submitting');
-        setResponseMessage('');
+  // --- Handlers ---
 
-        // Convert formData object to URLSearchParams for Google Apps Script
-        const params = new URLSearchParams(formData);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-        try {
-            const response = await fetch(FORM_ENDPOINT, {
-                method: 'POST',
-                body: params,
-                mode: 'no-cors', // CRUCIAL for Google Apps Script to avoid CORS errors
-            });
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // <-- 🛑 PREVENTS PAGE REDIRECT
 
-            // With 'no-cors', we can't read the server's response content, 
-            // so we assume success if the request completes without a network error.
-            if (response.ok || response.type === 'opaque') { 
-                setStatus('success');
-                setResponseMessage('🎉 Message sent successfully! I will be in touch soon.');
-                setFormData({ name: '', email: '', message: '' }); // Clear form fields
-            } else {
-                setStatus('error');
-                setResponseMessage('Submission failed. Please check your network.');
-            }
-        } catch (error) {
-            console.error("Form submission error:", error);
-            setStatus('error');
-            setResponseMessage('An error occurred during submission. Please try again.');
-        }
-    };
-    
-    const isSubmitting = status === 'submitting';
+    setStatus('submitting');
+    setResponseMessage('');
 
-    return (
-        <section id="contact" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div className="w-full text-center max-w-2xl mx-auto">
-                
-                <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-                    <Mail size={36} className="inline-block mr-3 text-blue-600" />
-                    Contact
-                </h2>
-                
-                <p className="text-xl text-slate-600 dark:text-slate-400 mb-10">
-                    Have a project or opportunity? Send me a message, and I'll get back to you as soon as possible.
-                </p>
+    // Convert formData object to URLSearchParams for Google Apps Script
+    const params = new URLSearchParams(formData);
 
-                {/* --- 🔔 SUBMISSION STATUS POPUP (NEW) --- */}
-                {status !== 'idle' && status !== 'submitting' && (
-                    <div className={`p-4 mb-6 rounded-lg font-medium transition-opacity duration-300 shadow-lg
-                                      ${status === 'success' 
-                                          ? 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-white' 
-                                          : 'bg-red-100 text-red-700 dark:bg-red-800 dark:text-white'
-                                      }`}
-                    >
-                        <div className="flex items-center justify-center gap-3">
-                            {status === 'success' ? <CheckCircle size={24} /> : <XCircle size={24} />}
-                            <p className="text-left">{responseMessage}</p>
-                            <button 
-                                onClick={() => setStatus('idle')}
-                                className="ml-4 text-sm font-bold opacity-70 hover:opacity-100"
-                            >
-                                (Dismiss)
-                            </button>
-                        </div>
-                    </div>
-                )}
-                
-                {/* --- CONTACT FORM --- */}
-                <form
-                    onSubmit={handleSubmit} // 🛑 Using JavaScript handler instead of standard action
-                    className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-xl shadow-2xl space-y-6"
-                >
-                    {/* Name Input */}
-                    <div>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Your Name"
-                            required
-                            value={formData.name} // Controlled component
-                            onChange={handleChange}
-                            disabled={isSubmitting} // Disable while sending
-                            className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: params,
+        mode: 'no-cors', // CRUCIAL for Google Apps Script to avoid CORS errors
+      });
+
+      // With 'no-cors', we can't read the server's response content, 
+      // so we assume success if the request completes without a network error.
+      if (response.ok || response.type === 'opaque') {
+        setStatus('success');
+        setResponseMessage('🎉 Message sent successfully! I will be in touch soon.');
+        setFormData({ name: '', email: '', message: '' }); // Clear form fields
+      } else {
+        setStatus('error');
+        setResponseMessage('Submission failed. Please check your network.');
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus('error');
+      setResponseMessage('An error occurred during submission. Please try again.');
+    }
+  };
+
+  const isSubmitting = status === 'submitting';
+
+  return (
+    <section id="contact" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="w-full text-center max-w-2xl mx-auto">
+
+        <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+          <Mail size={36} className="inline-block mr-3 text-blue-600" />
+          Contact
+        </h2>
+
+        <p className="text-xl text-slate-600 dark:text-slate-400 mb-10">
+          Have a project or opportunity? Send me a message, and I'll get back to you as soon as possible.
+        </p>
+
+        {/* --- 🔔 SUBMISSION STATUS POPUP (NEW) --- */}
+        {status !== 'idle' && status !== 'submitting' && (
+          <div className={`p-4 mb-6 rounded-lg font-medium transition-opacity duration-300 shadow-lg
+                                      ${status === 'success'
+              ? 'bg-green-100 text-green-700 dark:bg-green-800 dark:text-white'
+              : 'bg-red-100 text-red-700 dark:bg-red-800 dark:text-white'
+            }`}
+          >
+            <div className="flex items-center justify-center gap-3">
+              {status === 'success' ? <CheckCircle size={24} /> : <XCircle size={24} />}
+              <p className="text-left">{responseMessage}</p>
+              <button
+                onClick={() => setStatus('idle')}
+                className="ml-4 text-sm font-bold opacity-70 hover:opacity-100"
+              >
+                (Dismiss)
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* --- CONTACT FORM --- */}
+        <form
+          onSubmit={handleSubmit} // 🛑 Using JavaScript handler instead of standard action
+          className="bg-white dark:bg-slate-800 p-8 md:p-10 rounded-xl shadow-2xl space-y-6"
+        >
+          {/* Name Input */}
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+              value={formData.name} // Controlled component
+              onChange={handleChange}
+              disabled={isSubmitting} // Disable while sending
+              className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
                                        focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white
                                        bg-slate-50 dark:bg-slate-700 transition-colors disabled:opacity-50"
-                        />
-                    </div>
+            />
+          </div>
 
-                    {/* Email Input */}
-                    <div>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Your Email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange}
-                            disabled={isSubmitting}
-                            className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
+          {/* Email Input */}
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+              value={formData.email}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
                                        focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white
                                        bg-slate-50 dark:bg-slate-700 transition-colors disabled:opacity-50"
-                        />
-                    </div>
+            />
+          </div>
 
-                    {/* Message Textarea */}
-                    <div>
-                        <textarea
-                            name="message"
-                            rows="5"
-                            placeholder="Your Message"
-                            required
-                            value={formData.message}
-                            onChange={handleChange}
-                            disabled={isSubmitting}
-                            className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
+          {/* Message Textarea */}
+          <div>
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+              value={formData.message}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              className="w-full px-5 py-3 border border-slate-300 dark:border-slate-600 rounded-lg 
                                        focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white
                                        bg-slate-50 dark:bg-slate-700 transition-colors resize-none disabled:opacity-50"
-                        ></textarea>
-                    </div>
+            ></textarea>
+          </div>
 
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white 
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white 
                                    px-8 py-3 rounded-lg font-bold text-lg transition-colors shadow-md hover:shadow-lg disabled:bg-gray-400"
-                    >
-                        {isSubmitting ? (
-                            <>
-                                <span className="animate-spin h-5 w-5 border-t-2 border-white rounded-full"></span>
-                                Sending...
-                            </>
-                        ) : (
-                            <>
-                                <Send size={20} /> Send Message
-                            </>
-                        )}
-                    </button>
-                </form>            
-            </div>
-        </section>
-    );
+          >
+            {isSubmitting ? (
+              <>
+                <span className="animate-spin h-5 w-5 border-t-2 border-white rounded-full"></span>
+                Sending...
+              </>
+            ) : (
+              <>
+                <Send size={20} /> Send Message
+              </>
+            )}
+          </button>
+        </form>
+      </div>
+    </section>
+  );
 };
 
 const Footer = () => {
@@ -930,41 +934,41 @@ const Footer = () => {
           <p className="font-bold text-xl text-slate-900 dark:text-white mb-2">Portfolio.</p>
           <p className="text-slate-500 text-sm">© 2025 Jethro P. Moleño. All rights reserved.</p>
         </div>
-        
+
         {/* --- Social Icons Container with Links --- */}
         <div className="flex gap-6">
           {/* 1. GitHub Icon */}
-          <a 
-            href={YOUR_GITHUB_URL} 
-            target="_blank" 
+          <a
+            href={YOUR_GITHUB_URL}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-blue-600 transition-colors"
             aria-label="GitHub Profile"
           >
             <Github size={20} />
           </a>
-          
+
           {/* 2. LinkedIn Icon */}
-          <a 
-            href={YOUR_LINKEDIN_URL} 
-            target="_blank" 
+          <a
+            href={YOUR_LINKEDIN_URL}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 hover:text-blue-600 transition-colors"
             aria-label="LinkedIn Profile"
           >
             <Linkedin size={20} />
           </a>
-          
+
           {/* 3. Mail Icon */}
-          <a 
-            href={`mailto:${YOUR_EMAIL}`} 
+          <a
+            href={`mailto:${YOUR_EMAIL}`}
             className="text-slate-400 hover:text-blue-600 transition-colors"
             aria-label="Send Email"
           >
             <Mail size={20} />
           </a>
         </div>
-        
+
       </div>
     </footer>
   );
